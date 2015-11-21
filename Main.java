@@ -9,7 +9,7 @@ public class Main {
 	//to store mouse position
 	class MouseComponents
 	{
-		public int pos1,pos2;
+		public int pos1 = -1,pos2 = -1;
 	}
 	//color
 	class Color
@@ -57,7 +57,7 @@ public class Main {
 	int height;
     MouseComponents[] m = new MouseComponents[32*32];
 	
-	public void rm(MouseComponents[] v)
+	/*public void rm(MouseComponents[] v)
 	{
 		if(v.length == 0)
 			return;
@@ -66,7 +66,7 @@ public class Main {
 			v[i].pos1  = -1;
 			v[i].pos2  = -1;
 		}
-	}
+	}*/
 	public void dbsos(MouseComponents[] v, int mposx, int mposy, int w)
 	{
 		if(v.length == 0)
