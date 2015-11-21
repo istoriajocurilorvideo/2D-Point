@@ -5,8 +5,6 @@ import org.lwjgl.input.Mouse;
 import platform.javagithub.SoftPie;
 
 public class Main {
-
-
 	//color
 	class Color
 	{
@@ -53,11 +51,14 @@ public class Main {
 	{
 		soft.drawQuad(x, y, h*ratio,h*ratio,col.r,col.g,col.b,col.a );
 	}
-	public int[][] rm(int[][] v, int n, int m)
+	public int[][] rm(int[][] v)
 	{
+		int n,m;
+		n = v.length;
+		m = v[0].length;
 		int temp[][] = new int[n][m];
-		for(int i=1;i<=32;i++)
-			for(int j=1;j<=32;j++)
+		for(int i=0;i<=n;i++)
+			for(int j=0;j<=m-1;j++)
 				temp[i][j] = -1;
 		return temp;
 	}
@@ -81,7 +82,7 @@ public class Main {
 	public void initFuncs()
 	{
 		soft.init();
-    	mousePos = rm(mousePos, 32, 32);
+    	mousePos = rm(mousePos);
 	}
 	public void runnable(int w)
 	{
