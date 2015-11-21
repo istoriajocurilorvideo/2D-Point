@@ -53,12 +53,9 @@ public class Main {
 	}
 	public int[][] rm(int[][] v)
 	{
-		int n,m;
-		n = v.length;
-		m = v[0].length;
-		int temp[][] = new int[n][m];
-		for(int i=0;i<=n;i++)
-			for(int j=0;j<=m-1;j++)
+		int temp[][] = new int[v.length][v[0].length];
+		for(int i=0;i<=v.length-1;i++)
+			for(int j=0;j<=v[0].length-1;j++)
 				temp[i][j] = -1;
 		return temp;
 	}
