@@ -24,7 +24,7 @@ public class Main {
 		}
 	}
 	
-	Color c = new Color(0, 150, 0, 1);
+	Color c = new Color(0, 140, 0, 1);
 	Color c2 = new Color(120, 0, 0, 1);
 	
 	public static SoftPie soft = new SoftPie();
