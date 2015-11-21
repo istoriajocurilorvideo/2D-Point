@@ -6,11 +6,7 @@ import platform.javagithub.SoftPie;
 
 public class Main {
 
-	//to store mouse position
-	class MouseComponents
-	{
-		public int pos1 = -1,pos2 = -1;
-	}
+
 	//color
 	class Color
 	{
@@ -26,6 +22,10 @@ public class Main {
 	
 	Color c = new Color(0, 150, 0, 1);
 	Color c2 = new Color(120, 0, 0, 1);
+	
+	int mousePos[][] = new int[32][32];
+	int width;
+	int height;
 	
 	public static SoftPie soft = new SoftPie();
 	//drawing a pixel
@@ -53,21 +53,15 @@ public class Main {
 	{
 		soft.drawQuad(x, y, h*ratio,h*ratio,col.r,col.g,col.b,col.a );
 	}
-	int width;
-	int height;
-    MouseComponents[] m = new MouseComponents[32*32];
-	
-	/*public void rm(MouseComponents[] v)
+	public int[][] rm(int[][] v, int n, int m)
 	{
-		if(v.length == 0)
-			return;
-		for(int i=1;i<=v.length;i++)
-		{
-			v[i].pos1  = -1;
-			v[i].pos2  = -1;
-		}
-	}*/
-	public void dbsos(MouseComponents[] v, int mposx, int mposy, int w)
+		int temp[][] = new int[n][m];
+		for(int i=1;i<=32;i++)
+			for(int j=1;j<=32;j++)
+				temp[i][j] = -1;
+		return temp;
+	}
+	/*public void dbsos(MouseComponents[] v, int mposx, int mposy, int w)
 	{
 		if(v.length == 0)
 			return;
@@ -83,11 +77,11 @@ public class Main {
 		for(int i=1;i<=v.length;i++)
 			if((v[i].pos1 != -1) && (v[i].pos2 != -1))
 				dfsq(w*mposx, w*mposy, w,1, c2);
-	}
+	}*/
 	public void initFuncs()
 	{
 		soft.init();
-    	//rm(m);
+    	mousePos = rm(mousePos, 32, 32);
 	}
 	public void runnable(int w)
 	{
@@ -110,7 +104,7 @@ public class Main {
     	while(soft.isRunning())
     	{
     		soft.begin();
-    			main.runnable(10);
+    			main.runnable(30);
     		soft.end();
     	}
     	soft.finish();
