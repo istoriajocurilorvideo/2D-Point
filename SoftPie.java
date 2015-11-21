@@ -13,7 +13,7 @@ public class SoftPie {
 	public SoftPie() {
     	W = 640;
     	H = 480;
-    	title = " Default";
+    	title = "Default";
     }
     public SoftPie(int width , int height, String title) {
     	W = width;
