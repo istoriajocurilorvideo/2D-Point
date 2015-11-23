@@ -53,11 +53,11 @@ public class Main {
 	{
 		soft.drawQuad(x, y, h*ratio,h*ratio,col.r,col.g,col.b,col.a );
 	}
-	public int[][] rm(int[][] v)
+	public int[][] rm(int[][] v, int value)
 	{
 		for(int i=0;i<=v.length-1;i++)
 			for(int j=0;j<=v[0].length-1;j++)
-				v[i][j] = -1;
+				v[i][j] = value;
 		return v;
 	}
 	public void addtts(int v[][], int mposx, int mposy)
@@ -77,7 +77,7 @@ public class Main {
 	public void initFuncs()
 	{
 		soft.init();
-    	mousePos = rm(mousePos);
+    	mousePos = rm(mousePos,-1);
 	}
 	public void runnable(int dim)
 	{
@@ -97,7 +97,7 @@ public class Main {
 		while(Keyboard.next())
 		{	
 			if(Keyboard.getEventKey() == Keyboard.KEY_C)
-				mousePos = rm(mousePos);
+				mousePos = rm(mousePos,-1);
 			
 		}
 				
@@ -105,8 +105,7 @@ public class Main {
 
     public static void main(String[] argv) {
     	Main main = new Main();
-    	main.initFuncs();
-		int lastwheel; 
+    	main.initFuncs(); 
     	while(soft.isRunning())
     	{
     		soft.begin();
